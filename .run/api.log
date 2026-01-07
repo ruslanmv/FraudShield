@@ -1,0 +1,621 @@
+INFO:     Will watch for changes in these directories: ['/mnt/c/workspace/FraudShield/master']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [3624] using WatchFiles
+INFO:     Started server process [3626]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:55154 - "OPTIONS /case/TX-999 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55156 - "OPTIONS /case/TX-999 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55156 - "GET /case/TX-999 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55154 - "GET /case/TX-999 HTTP/1.1" 200 OK
+╭─────────────────────────── Crew Execution Started ───────────────────────────╮
+│                                                                              │
+│  Crew Execution Started                                                      │
+│  Name: crew                                                                  │
+│  ID: 64ccd7df-e433-43dd-b7ca-db3b9acec318                                    │
+│  Tool Args:                                                                  │
+│                                                                              │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+🚀 Crew: crew
+└── 📋 Task: 042a82d9-4307-43b2-8d28-365988518a8a
+    Status: Executing Task...╭────────────────────────────── 🤖 Agent Started ──────────────────────────────╮
+│                                                                              │
+│  Agent: Data Sentry                                                          │
+│                                                                              │
+│  Task: Return ONLY valid JSON:                                               │
+│  { "transaction": {...}, "user_history": {...}, "similar_cases": {...},      │
+│  "observations": [ {"key":"...","value":"...","evidence":"..."} ] }          │
+│  No markdown.                                                                │
+│                                                                              │
+│  Context:                                                                    │
+│  {                                                                           │
+│    "transaction_id": "TX-999",                                               │
+│    "decision_packet": {                                                      │
+│      "transaction_id": "TX-999",                                             │
+│      "model_version": "heuristic_baseline_v2",                               │
+│      "risk_score": 0.596,                                                    │
+│      "decision": "CHALLENGE",                                                │
+│      "reason_codes": [                                                       │
+│        "RC014_IP_DATACENTER_PROXY",                                          │
+│        "RC031_FREIGHT_FORWARDER",                                            │
+│        "RC041_SHIP_BILL_MISMATCH"                                            │
+│      ],                                                                      │
+│      "rule_hits": [                                                          │
+│        "RULE_FREIGHT_FORWARDER_SIGNAL",                                      │
+│        "RULE_PROXY_SIGNAL",                                                  │
+│        "RULE_SHIP_BILL_MISMATCH"                                             │
+│      ],                                                                      │
+│      "decision_event_id": "9776c885-ec61-48cb-95fe-cb434ae950c7",            │
+│      "audit_log_path": "logs/decisions.jsonl"                                │
+│    },                                                                        │
+│    "pii_note": "PII redacted unless INCLUDE_PII=true"                        │
+│  }                                                                           │
+│                                                                              │
+│  Evidence Inputs:                                                            │
+│  {                                                                           │
+│    "transaction": {                                                          │
+│      "found": true,                                                          │
+│      "transaction": {                                                        │
+│        "trans_id": "TX-999",                                                 │
+│        "user_id": "U105",                                                    │
+│        "amount": 2800.0,                                                     │
+│        "merchant": "BestBuy",                                                │
+│        "device_ip": "45.22.19.11",                                           │
+│        "shipping_addr": "Freight Forwarder, DE",                             │
+│        "billing_addr": "Alice Smith, US",                                    │
+│        "timestamp": "2023-10-27 10:00:00",                                   │
+│        "name": null,                                                         │
+│        "email": "a***e@ex.com",                                              │
+│        "home_ip": "192.168.1.50",                                            │
+│        "account_age_days": 1400,                                             │
+│        "vip_status": "Platinum",                                             │
+│        "country": "US"                                                       │
+│      }                                                                       │
+│    },                                                                        │
+│    "user_history": {                                                         │
+│      "user_id": "U105",                                                      │
+│      "velocity": {                                                           │
+│        "txn_count_1h": 0,                                                    │
+│        "txn_count_24h": 0                                                    │
+│      },                                                                      │
+│      "last_transactions": [                                                  │
+│        {                                                                     │
+│          "trans_id": "TX-999",                                               │
+│          "amount": 2800.0,                                                   │
+│          "merchant": "BestBuy",                                              │
+│          "device_ip": "45.22.19.11",                                         │
+│          "timestamp": "2023-10-27 10:00:00"                                  │
+│        }                                                                     │
+│      ]                                                                       │
+│    },                                                                        │
+│    "similar_cases": {                                                        │
+│      "query_trans_id": "TX-999",                                             │
+│      "similar_cases": [                                                      │
+│        {                                                                     │
+│          "trans_id": "TX-888",                                               │
+│          "distance": 0.24,                                                   │
+│          "reason": "Device reuse + velocity spike"                           │
+│        },                                                                    │
+│        {                                                                     │
+│          "trans_id": "TX-777",                                               │
+│          "distance": 0.31,                                                   │
+│          "reason": "Proxy IP + high amount"                                  │
+│        }                                                                     │
+│      ]                                                                       │
+│    }                                                                         │
+│  }                                                                           │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+🚀 Crew: crew
+└── 📋 Task: 042a82d9-4307-43b2-8d28-365988518a8a
+    Status: Executing Task...╭─────────────────────────── ✅ Agent Final Answer ────────────────────────────╮
+│                                                                              │
+│  Agent: Data Sentry                                                          │
+│                                                                              │
+│  Final Answer:                                                               │
+│  { "transaction": { "found": true, "transaction": { "trans_id": "TX-999",    │
+│  "user_id": "U105", "amount": 2800.0, "merchant": "BestBuy", "device_ip":    │
+│  "45.22.19.11", "shipping_addr": "Freight Forwarder, DE", "billing_addr":    │
+│  "Alice Smith, US", "timestamp": "2023-10-27 10:00:00", "name": null,        │
+│  "email": "a***e@ex.com", "home_ip": "192.168.1.50", "account_age_days":     │
+│  1400, "vip_status": "Platinum", "country": "US" } }, "user_history": {      │
+│  "user_id": "U105", "velocity": { "txn_count_1h": 0, "txn_count_24h": 0 },   │
+│  "last_transactions": [ { "trans_id": "TX-999", "amount": 2800.0,            │
+│  "merchant": "BestBuy", "device_ip": "45.22.19.11", "timestamp":             │
+│  "2023-10-27 10:00:00" } ] }, "similar_cases": { "query_trans_id":           │
+│  "TX-999", "similar_cases": [ { "trans_id": "TX-888", "distance": 0.24,      │
+│  "reason": "Device reuse + velocity spike" }, { "trans_id": "TX-777",        │
+│  "distance": 0.31, "reason": "Proxy IP + high amount" } ] },                 │
+│  "observations": [ { "key": "transaction_id", "value": "TX-999",             │
+│  "evidence": "Transaction ID matches the submitted transaction." }, {        │
+│  "key": "risk_score", "value": 0.596, "evidence": "Risk score indicates a    │
+│  moderate risk based on rules applied." }, { "key": "decision", "value":     │
+│  "CHALLENGE", "evidence": "Decision indicates that further verification is   │
+│  needed." }, { "key": "reason_codes", "value": "RC014_IP_DATACENTER_PROXY,   │
+│  RC031_FREIGHT_FORWARDER, RC041_SHIP_BILL_MISMATCH", "evidence": "Presence   │
+│  of these codes suggests possible risk factors." }, { "key": "rule_hits",    │
+│  "value": "RULE_FREIGHT_FORWARDER_SIGNAL, RULE_PROXY_SIGNAL,                 │
+│  RULE_SHIP_BILL_MISMATCH", "evidence": "Indicates rules that were triggered  │
+│  indicating an elevated risk." } ] }                                         │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────── Task Completion ───────────────────────────────╮
+│                                                                              │
+│  Task Completed                                                              │
+│  Name: 042a82d9-4307-43b2-8d28-365988518a8a                                  │
+│  Agent: Data Sentry                                                          │
+│  Tool Args:                                                                  │
+│                                                                              │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+🚀 Crew: crew
+├── 📋 Task: 042a82d9-4307-43b2-8d28-365988518a8a
+│   Assigned to: Data Sentry
+│   Status: ✅ Completed
+└── 📋 Task: 99967ead-d39c-4b10-b874-4db63bb8a8be
+    Status: Executing Task...╭────────────────────────────── 🤖 Agent Started ──────────────────────────────╮
+│                                                                              │
+│  Agent: Threat Intel                                                         │
+│                                                                              │
+│  Task: Return ONLY valid JSON:                                               │
+│  { "ip_intel": {...}, "flags": ["proxy", ...], "notes": "..." }              │
+│  No markdown.                                                                │
+│                                                                              │
+│  Context:                                                                    │
+│  {                                                                           │
+│    "transaction_id": "TX-999",                                               │
+│    "decision_packet": {                                                      │
+│      "transaction_id": "TX-999",                                             │
+│      "model_version": "heuristic_baseline_v2",                               │
+│      "risk_score": 0.596,                                                    │
+│      "decision": "CHALLENGE",                                                │
+│      "reason_codes": [                                                       │
+│        "RC014_IP_DATACENTER_PROXY",                                          │
+│        "RC031_FREIGHT_FORWARDER",                                            │
+│        "RC041_SHIP_BILL_MISMATCH"                                            │
+│      ],                                                                      │
+│      "rule_hits": [                                                          │
+│        "RULE_FREIGHT_FORWARDER_SIGNAL",                                      │
+│        "RULE_PROXY_SIGNAL",                                                  │
+│        "RULE_SHIP_BILL_MISMATCH"                                             │
+│      ],                                                                      │
+│      "decision_event_id": "9776c885-ec61-48cb-95fe-cb434ae950c7",            │
+│      "audit_log_path": "logs/decisions.jsonl"                                │
+│    },                                                                        │
+│    "pii_note": "PII redacted unless INCLUDE_PII=true"                        │
+│  }                                                                           │
+│                                                                              │
+│  Intel Inputs:                                                               │
+│  {                                                                           │
+│    "ip_intel": {                                                             │
+│      "found": true,                                                          │
+│      "intel": {                                                              │
+│        "ip_address": "45.22.19.11",                                          │
+│        "reputation_score": 95,                                               │
+│        "isp": "Hostinger",                                                   │
+│        "is_proxy": 1                                                         │
+│      }                                                                       │
+│    }                                                                         │
+│  }                                                                           │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+
+╭─────────────────────────── ✅ Agent Final Answer ────────────────────────────╮
+│                                                                              │
+│  Agent: Threat Intel                                                         │
+│                                                                              │
+│  Final Answer:                                                               │
+│  { "ip_intel": { "found": true, "intel": { "ip_address": "45.22.19.11",      │
+│  "reputation_score": 95, "isp": "Hostinger", "is_proxy": 1 } }, "flags":     │
+│  ["proxy", "datacenter"], "notes": "High reputation score; identified as a   │
+│  proxy IP associated with freight forwarding. Further investigation is       │
+│  required due to elevated risk factors." }                                   │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+🚀 Crew: crew
+├── 📋 Task: 042a82d9-4307-43b2-8d28-365988518a8a
+│   Assigned to: Data Sentry
+│   Status: ✅ Completed
+├── 📋 Task: 99967ead-d39c-4b10-b874-4db63bb8a8be
+│   Assigned to: Threat Intel
+│   Status: ✅ Completed
+└── 📋 Task: ab6b08be-c0dd-4af3-9194-6341956dc29f
+    Status: Executing Task...╭────────────────────────────── Task Completion ───────────────────────────────╮
+│                                                                              │
+│  Task Completed                                                              │
+│  Name: 99967ead-d39c-4b10-b874-4db63bb8a8be                                  │
+│  Agent: Threat Intel                                                         │
+│  Tool Args:                                                                  │
+│                                                                              │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────── 🤖 Agent Started ──────────────────────────────╮
+│                                                                              │
+│  Agent: Compliance Guard                                                     │
+│                                                                              │
+│  Task: Return ONLY valid JSON:                                               │
+│  { "evidence_sources": {"kyc": {...}, "disputes": {...}},                    │
+│  "policy_concerns": [                                                        │
+│  {"policy_area":"KYC|AML|DISPUTES|OTHER","summary":"...","severity":"low|me  │
+│  dium|high"} ], "required_actions": ["..."], "constraints": "Only mention    │
+│  concerns supported by evidence_sources or context." }                       │
+│  No markdown.                                                                │
+│                                                                              │
+│  Context:                                                                    │
+│  {                                                                           │
+│    "transaction_id": "TX-999",                                               │
+│    "decision_packet": {                                                      │
+│      "transaction_id": "TX-999",                                             │
+│      "model_version": "heuristic_baseline_v2",                               │
+│      "risk_score": 0.596,                                                    │
+│      "decision": "CHALLENGE",                                                │
+│      "reason_codes": [                                                       │
+│        "RC014_IP_DATACENTER_PROXY",                                          │
+│        "RC031_FREIGHT_FORWARDER",                                            │
+│        "RC041_SHIP_BILL_MISMATCH"                                            │
+│      ],                                                                      │
+│      "rule_hits": [                                                          │
+│        "RULE_FREIGHT_FORWARDER_SIGNAL",                                      │
+│        "RULE_PROXY_SIGNAL",                                                  │
+│        "RULE_SHIP_BILL_MISMATCH"                                             │
+│      ],                                                                      │
+│      "decision_event_id": "9776c885-ec61-48cb-95fe-cb434ae950c7",            │
+│      "audit_log_path": "logs/decisions.jsonl"                                │
+│    },                                                                        │
+│    "pii_note": "PII redacted unless INCLUDE_PII=true"                        │
+│  }                                                                           │
+│                                                                              │
+│  Compliance Inputs:                                                          │
+│  {                                                                           │
+│    "kyc": {                                                                  │
+│      "found": true,                                                          │
+│      "kyc": {                                                                │
+│        "user_id": "U105",                                                    │
+│        "kyc_status": "VERIFIED",                                             │
+│        "kyc_level": "L2",                                                    │
+│        "event_ts": "2023-01-01 00:00:00"                                     │
+│      }                                                                       │
+│    },                                                                        │
+│    "disputes": {                                                             │
+│      "found": true,                                                          │
+│      "disputes": {                                                           │
+│        "user_id": "U105",                                                    │
+│        "dispute_count_90d": 0,                                               │
+│        "loss_amount_90d": 0.0,                                               │
+│        "last_dispute_date": null                                             │
+│      }                                                                       │
+│    }                                                                         │
+│  }                                                                           │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+🚀 Crew: crew
+├── 📋 Task: 042a82d9-4307-43b2-8d28-365988518a8a
+│   Assigned to: Data Sentry
+│   Status: ✅ Completed
+├── 📋 Task: 99967ead-d39c-4b10-b874-4db63bb8a8be
+│   Assigned to: Threat Intel
+│   Status: ✅ Completed
+└── 📋 Task: ab6b08be-c0dd-4af3-9194-6341956dc29f
+    Status: Executing Task...╭─────────────────────────── ✅ Agent Final Answer ────────────────────────────╮
+│                                                                              │
+│  Agent: Compliance Guard                                                     │
+│                                                                              │
+│  Final Answer:                                                               │
+│  {                                                                           │
+│    "evidence_sources": {                                                     │
+│      "kyc": {                                                                │
+│        "user_id": "U105",                                                    │
+│        "kyc_status": "VERIFIED",                                             │
+│        "kyc_level": "L2",                                                    │
+│        "event_ts": "2023-01-01 00:00:00"                                     │
+│      },                                                                      │
+│      "disputes": {                                                           │
+│        "user_id": "U105",                                                    │
+│        "dispute_count_90d": 0,                                               │
+│        "loss_amount_90d": 0.0,                                               │
+│        "last_dispute_date": null                                             │
+│      }                                                                       │
+│    },                                                                        │
+│    "policy_concerns": [                                                      │
+│      {                                                                       │
+│        "policy_area": "KYC",                                                 │
+│        "summary": "KYC status is verified, minimal concern.",                │
+│        "severity": "low"                                                     │
+│      },                                                                      │
+│      {                                                                       │
+│        "policy_area": "DISPUTES",                                            │
+│        "summary": "User has no recent disputes, indicating low risk.",       │
+│        "severity": "low"                                                     │
+│      },                                                                      │
+│      {                                                                       │
+│        "policy_area": "AML",                                                 │
+│        "summary": "Transaction involves a proxy IP and freight forwarding    │
+│  which raises potential red flags.",                                         │
+│        "severity": "high"                                                    │
+│      },                                                                      │
+│      {                                                                       │
+│        "policy_area": "OTHER",                                               │
+│        "summary": "Risk score of 0.596 suggests further scrutiny is          │
+│  required.",                                                                 │
+│        "severity": "medium"                                                  │
+│      }                                                                       │
+│    ],                                                                        │
+│    "required_actions": [                                                     │
+│      "Further verification needed due to the challenge decision and          │
+│  elevated risk factors.",                                                    │
+│      "Review transaction involving a freight forwarder and proxy IP."        │
+│    ],                                                                        │
+│    "constraints": "Only mention concerns supported by evidence_sources or    │
+│  context."                                                                   │
+│  }                                                                           │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────── Task Completion ───────────────────────────────╮
+│                                                                              │
+│  Task Completed                                                              │
+│  Name: ab6b08be-c0dd-4af3-9194-6341956dc29f                                  │
+│  Agent: Compliance Guard                                                     │
+│  Tool Args:                                                                  │
+│                                                                              │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+🚀 Crew: crew
+├── 📋 Task: 042a82d9-4307-43b2-8d28-365988518a8a
+│   Assigned to: Data Sentry
+│   Status: ✅ Completed
+├── 📋 Task: 99967ead-d39c-4b10-b874-4db63bb8a8be
+│   Assigned to: Threat Intel
+│   Status: ✅ Completed
+├── 📋 Task: ab6b08be-c0dd-4af3-9194-6341956dc29f
+│   Assigned to: Compliance Guard
+│   Status: ✅ Completed
+└── 📋 Task: c7c8c424-2ad6-4b17-a6b9-1432071e380a
+    Status: Executing Task...╭────────────────────────────── 🤖 Agent Started ──────────────────────────────╮
+│                                                                              │
+│  Agent: RCA Writer                                                           │
+│                                                                              │
+│  Task: Write MARKDOWN ONLY with these sections:                              │
+│  ### Summary                                                                 │
+│  ### Evidence (bullets)                                                      │
+│  ### Model & Rules                                                           │
+│  ### Recommended Next Steps                                                  │
+│  ### Escalation Notes                                                        │
+│                                                                              │
+│  Explicitly state: ML+Rules made the decision; this narrative is             │
+│  explanatory only.                                                           │
+│                                                                              │
+│  Context:                                                                    │
+│  {                                                                           │
+│    "transaction_id": "TX-999",                                               │
+│    "decision_packet": {                                                      │
+│      "transaction_id": "TX-999",                                             │
+│      "model_version": "heuristic_baseline_v2",                               │
+│      "risk_score": 0.596,                                                    │
+│      "decision": "CHALLENGE",                                                │
+│      "reason_codes": [                                                       │
+│        "RC014_IP_DATACENTER_PROXY",                                          │
+│        "RC031_FREIGHT_FORWARDER",                                            │
+│        "RC041_SHIP_BILL_MISMATCH"                                            │
+│      ],                                                                      │
+│      "rule_hits": [                                                          │
+│        "RULE_FREIGHT_FORWARDER_SIGNAL",                                      │
+│        "RULE_PROXY_SIGNAL",                                                  │
+│        "RULE_SHIP_BILL_MISMATCH"                                             │
+│      ],                                                                      │
+│      "decision_event_id": "9776c885-ec61-48cb-95fe-cb434ae950c7",            │
+│      "audit_log_path": "logs/decisions.jsonl"                                │
+│    },                                                                        │
+│    "pii_note": "PII redacted unless INCLUDE_PII=true"                        │
+│  }                                                                           │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+
+🚀 Crew: crew
+├── 📋 Task: 042a82d9-4307-43b2-8d28-365988518a8a
+│   Assigned to: Data Sentry
+│   Status: ✅ Completed
+├── 📋 Task: 99967ead-d39c-4b10-b874-4db63bb8a8be
+│   Assigned to: Threat Intel
+│   Status: ✅ Completed
+├── 📋 Task: ab6b08be-c0dd-4af3-9194-6341956dc29f
+│   Assigned to: Compliance Guard
+│   Status: ✅ Completed
+└── 📋 Task: c7c8c424-2ad6-4b17-a6b9-1432071e380a
+    Status: Executing Task...╭─────────────────────────── ✅ Agent Final Answer ────────────────────────────╮
+│                                                                              │
+│  Agent: RCA Writer                                                           │
+│                                                                              │
+│  Final Answer:                                                               │
+│  ```markdown                                                                 │
+│  ### Summary                                                                 │
+│  Transaction TX-999 has been flagged for further review and a "CHALLENGE"    │
+│  decision was made based on a combination of machine learning and            │
+│  rule-based analytics due to potential risks associated with the shipping    │
+│  address, IP address, and transaction characteristics.                       │
+│                                                                              │
+│  ### Evidence                                                                │
+│  - **Transaction ID**: TX-999 matches the submitted transaction.             │
+│  - **Risk Score**: 0.596 indicates a moderate risk based on applied rules.   │
+│  - **Decision**: "CHALLENGE" suggests that further verification is needed.   │
+│  - **Reason Codes**:                                                         │
+│    - RC014_IP_DATACENTER_PROXY: Indicates the use of a data center proxy     │
+│  IP.                                                                         │
+│    - RC031_FREIGHT_FORWARDER: The shipping address is listed as a freight    │
+│  forwarder.                                                                  │
+│    - RC041_SHIP_BILL_MISMATCH: Shipping and billing addresses do not match.  │
+│  - **Rule Hits**:                                                            │
+│    - RULE_FREIGHT_FORWARDER_SIGNAL: Triggered due to the freight forwarding  │
+│  nature of shipping.                                                         │
+│    - RULE_PROXY_SIGNAL: Triggered by the identification of the proxy IP.     │
+│    - RULE_SHIP_BILL_MISMATCH: Triggered due to incompatibility between       │
+│  shipping and billing addresses.                                             │
+│  - **IP Intelligence**:                                                      │
+│    - IP Address: 45.22.19.11 has a reputation score of 95 and is classified  │
+│  as a proxy IP associated with freight forwarding.                           │
+│  - **KYC Status**: User U105 has a verified KYC status but there are         │
+│  high-risk factors associated with the transaction.                          │
+│  - **Dispute History**: No recent disputes, indicating low risk prior to     │
+│  this transaction.                                                           │
+│                                                                              │
+│  ### Model & Rules                                                           │
+│  The decision to challenge this transaction is guided by the ML model        │
+│  version heuristic_baseline_v2 with a risk score of 0.596. The decision was  │
+│  reinforced by the triggering of specific rules aligned with the detected    │
+│  attributes of the transaction.                                              │
+│                                                                              │
+│  ### Recommended Next Steps                                                  │
+│  - **Further Verification**: Conduct additional checks to verify the         │
+│  legitimacy of the transaction given the challenge decision.                 │
+│  - **Review Shipping Method**: Evaluate the use of the freight forwarding    │
+│  address in conjunction with the proxy IP.                                   │
+│  - **Contact User**: If necessary, reach out to the user for the             │
+│  confirmation of the shipping details and the intent behind using a freight  │
+│  forwarder.                                                                  │
+│                                                                              │
+│  ### Escalation Notes                                                        │
+│  Due to the combination of high-risk indicators including the use of a       │
+│  proxy IP, freight forwarding, and mismatched addresses, this case should    │
+│  be closely monitored. Recommendations involve potential escalation to a     │
+│  senior fraud analyst if the verification does not align with expected       │
+│  patterns of legitimate behavior.                                            │
+│                                                                              │
+│  *ML+Rules made the decision; this narrative is explanatory only.*           │
+│  ```                                                                         │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+🚀 Crew: crew
+├── 📋 Task: 042a82d9-4307-43b2-8d28-365988518a8a
+│   Assigned to: Data Sentry
+│   Status: ✅ Completed
+├── 📋 Task: 99967ead-d39c-4b10-b874-4db63bb8a8be
+│   Assigned to: Threat Intel
+│   Status: ✅ Completed
+├── 📋 Task: ab6b08be-c0dd-4af3-9194-6341956dc29f
+│   Assigned to: Compliance Guard
+│   Status: ✅ Completed
+└── 📋 Task: c7c8c424-2ad6-4b17-a6b9-1432071e380a
+    Assigned to: RCA Writer
+    Status: ✅ Completed╭────────────────────────────── Task Completion ───────────────────────────────╮
+│                                                                              │
+│  Task Completed                                                              │
+│  Name: c7c8c424-2ad6-4b17-a6b9-1432071e380a                                  │
+│  Agent: RCA Writer                                                           │
+│  Tool Args:                                                                  │
+│                                                                              │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────── Crew Completion ───────────────────────────────╮
+│                                                                              │
+│  Crew Execution Completed                                                    │
+│  Name: crew                                                                  │
+│  ID: 64ccd7df-e433-43dd-b7ca-db3b9acec318                                    │
+│  Tool Args:                                                                  │
+│  Final Output: ```markdown                                                   │
+│  ### Summary                                                                 │
+│  Transaction TX-999 has been flagged for further review and a "CHALLENGE"    │
+│  decision was made based on a combination of machine learning and            │
+│  rule-based analytics due to potential risks associated with the shipping    │
+│  address, IP address, and transaction characteristics.                       │
+│                                                                              │
+│  ### Evidence                                                                │
+│  - **Transaction ID**: TX-999 matches the submitted transaction.             │
+│  - **Risk Score**: 0.596 indicates a moderate risk based on applied rules.   │
+│  - **Decision**: "CHALLENGE" suggests that further verification is needed.   │
+│  - **Reason Codes**:                                                         │
+│    - RC014_IP_DATACENTER_PROXY: Indicates the use of a data center proxy     │
+│  IP.                                                                         │
+│    - RC031_FREIGHT_FORWARDER: The shipping address is listed as a freight    │
+│  forwarder.                                                                  │
+│    - RC041_SHIP_BILL_MISMATCH: Shipping and billing addresses do not match.  │
+│  - **Rule Hits**:                                                            │
+│    - RULE_FREIGHT_FORWARDER_SIGNAL: Triggered due to the freight forwarding  │
+│  nature of shipping.                                                         │
+│    - RULE_PROXY_SIGNAL: Triggered by the identification of the proxy IP.     │
+│    - RULE_SHIP_BILL_MISMATCH: Triggered due to incompatibility between       │
+│  shipping and billing addresses.                                             │
+│  - **IP Intelligence**:                                                      │
+│    - IP Address: 45.22.19.11 has a reputation score of 95 and is classified  │
+│  as a proxy IP associated with freight forwarding.                           │
+│  - **KYC Status**: User U105 has a verified KYC status but there are         │
+│  high-risk factors associated with the transaction.                          │
+│  - **Dispute History**: No recent disputes, indicating low risk prior to     │
+│  this transaction.                                                           │
+│                                                                              │
+│  ### Model & Rules                                                           │
+│  The decision to challenge this transaction is guided by the ML model        │
+│  version heuristic_baseline_v2 with a risk score of 0.596. The decision was  │
+│  reinforced by the triggering of specific rules aligned with the detected    │
+│  attributes of the transaction.                                              │
+│                                                                              │
+│  ### Recommended Next Steps                                                  │
+│  - **Further Verification**: Conduct additional checks to verify the         │
+│  legitimacy of the transaction given the challenge decision.                 │
+│  - **Review Shipping Method**: Evaluate the use of the freight forwarding    │
+│  address in conjunction with the proxy IP.                                   │
+│  - **Contact User**: If necessary, reach out to the user for the             │
+│  confirmation of the shipping details and the intent behind using a freight  │
+│  forwarder.                                                                  │
+│                                                                              │
+│  ### Escalation Notes                                                        │
+│  Due to the combination of high-risk indicators including the use of a       │
+│  proxy IP, freight forwarding, and mismatched addresses, this case should    │
+│  be closely monitored. Recommendations involve potential escalation to a     │
+│  senior fraud analyst if the verification does not align with expected       │
+│  patterns of legitimate behavior.                                            │
+│                                                                              │
+│  *ML+Rules made the decision; this narrative is explanatory only.*           │
+│  ```                                                                         │
+│                                                                              │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+╭─────────────────────────────── Tracing Status ───────────────────────────────╮
+│                                                                              │
+│  Info: Tracing is disabled.                                                  │
+│                                                                              │
+│  To enable tracing, do any one of these:                                     │
+│  • Set tracing=True in your Crew/Flow code                                   │
+│  • Set CREWAI_TRACING_ENABLED=true in your project's .env file               │
+│  • Run: crewai traces enable                                                 │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+
+╭────────────────────────────── Execution Traces ──────────────────────────────╮
+│                                                                              │
+│  🔍 Detailed execution traces are available!                                 │
+│                                                                              │
+│  View insights including:                                                    │
+│    • Agent decision-making process                                           │
+│    • Task execution flow and timing                                          │
+│    • Tool usage details                                                      │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Would you like to view your execution traces? [y/N] (20s timeout): 
+
+╭────────────────────────── Tracing Preference Saved ──────────────────────────╮
+│                                                                              │
+│  Info: Tracing has been disabled.                                            │
+│                                                                              │
+│  Your preference has been saved. Future Crew/Flow executions will not        │
+│  collect traces.                                                             │
+│                                                                              │
+│  To enable tracing later, do any one of these:                               │
+│  • Set tracing=True in your Crew/Flow code                                   │
+│  • Set CREWAI_TRACING_ENABLED=true in your project's .env file               │
+│  • Run: crewai traces enable                                                 │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+INFO:     127.0.0.1:55154 - "POST /investigate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60662 - "OPTIONS /decision HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60662 - "POST /decision HTTP/1.1" 200 OK
