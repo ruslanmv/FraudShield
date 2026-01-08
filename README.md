@@ -151,7 +151,7 @@ This reflects **enterprise AI governance standards**.
 ---
 
 ## 🖥️ Operations Console (React)
-
+![alt text](assets/demo.gif)
 The React UI represents a **Risk Operations Command Center**:
 
 - 📥 Case Queue
@@ -195,6 +195,7 @@ Stop everything cleanly:
 ```bash
 make stop
 ```
+
 
 ---
 
