@@ -1,4 +1,4 @@
-# Production Readiness Checklist (v0.5.0)
+# Production Readiness Checklist (v0.1.0)
 
 ## Required before production
 
