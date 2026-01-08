@@ -1,4 +1,4 @@
-# Decisioning Architecture (v0.5.0)
+# Decisioning Architecture (v0.1.0)
 
 ## Responsibilities
 
