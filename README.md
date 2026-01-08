@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <strong>FraudShield Enterprise (v0.5.0)</strong><br/>
+  <strong>FraudShield Enterprise (v0.1.0)</strong><br/>
   Production-minded fraud risk decisioning platform
 </p>
 
